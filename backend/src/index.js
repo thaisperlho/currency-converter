@@ -1,9 +1,7 @@
 const express = require('express')
-const getCurrency = require('./http')
+const getCurrency = require('./currency')
 
 const app = express()
-
-
 app.post('/api/currency', (req, res) => {
     getCurrency().then(data => {
         console.log(data)
@@ -11,12 +9,9 @@ app.post('/api/currency', (req, res) => {
     })
 
 })
-
 app.get('/api/currency', (req, res) => {
     res.send('Servidor rodando, tudo ok')
 })
 
-
-app.listen(3000)
-
+app.listen(3000, () => console.log('Servidor rodando porta 3000'))
 
